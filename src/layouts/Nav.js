@@ -5,8 +5,8 @@ export default class Nav extends React.Component {
   render() {
     return (
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/detail">Home</Link>
+        <Link to="/home">home</Link>
+        <Link to="/detail">detail</Link>
       </nav>
     );
   }

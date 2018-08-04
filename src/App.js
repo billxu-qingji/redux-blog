@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { hashHistory } from 'react-router';
+import Provider from 'react-redux';
 import './App.css';
 import routes from './routes';
-import Frame from './layouts/Frame';
-import { BrowserRouter as Router } from 'react-router-dom';
+import configureStore from './redux/configureStore';
+
+const store = configureStore();
+const history = syncHistoryWithStore(hashHistory, store);
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Frame>
-          {
-            routes
-          }
-        </Frame>
-      </Router>
-    );
+      <Provider store={store}>
+        {routes(history)}
+      </Provider>
+    )
   }
 }
 
