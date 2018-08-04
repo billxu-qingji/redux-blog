@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PreviewList from '../components/Home/PreviewList';
+import listActions from './HomeRedux';
 
 class Home extends Component {
   render() {
@@ -25,5 +26,4 @@ export default connect(state => {
   return {
     listActions: bindActionCreators(listActions, dispatch),
   }
-})
-export default Home; 
+})(Home);
